@@ -27,7 +27,7 @@ DB_CONFIG = {
     "host": "localhost",
     "port": 3306,
     "user": "root",
-    "password": "!Yy970912",
+    "password": "Edit Password HERE",
     "database": "cinema"
 }
 
@@ -2114,4 +2114,5 @@ ORDER BY accessible_theater_count DESC;
 
 
 if __name__ == "__main__":
+
     App().mainloop()
