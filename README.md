@@ -1,39 +1,84 @@
-# database_project_cinema_accessibility
-Cinema Accessibility Database Viewer
+# Cinema Accessibility Database Viewer
 
-This project is a desktop GUI tool (Python + Tkinter + MySQL) that lets users explore movie theaters in Austin and San Antonio, with a focus on accessibility:
+A desktop GUI tool built with **Python + Tkinter + MySQL** to explore movie theaters in **Austin** and **San Antonio**, focusing on **accessibility features**.
 
-Which theaters have wheelchair seating, caption devices, and audio description
+The app provides:
+- Theater accessibility info (wheelchair seating, caption devices, audio description)
+- Showtimes with captions or audio description
+- Movie posters and nearby road-view images
 
-Which showtimes are captioned or audio described
+The application connects to a MySQL database named **`cinema`** and loads images from local asset folders.
 
-Visual context via movie posters and road-view images near each theater
+---
 
-The app connects to a MySQL database called cinema and uses local image folders for posters and road-view screenshots.
+## 1. Requirements
 
-2. Requirements
-**Software**
-- Python 3.9+ (Windows, 64-bit recommended)
+### 1.1 Software
+- Python 3.9+ (Windows 64-bit recommended)
 - MySQL Server 8.x
-- MySQL client (MySQL Workbench or command-line client)
-**Python packages**
-Install these in your environment:
-- mysql-connector-python
-- Pillow
-- tkinterweb
-```pip install mysql-connector-python pillow tkinterweb```
+- MySQL Workbench or MySQL CLI client
 
-3. Database Setup
-3.1 Create The Database
-1. Start SQL WorkBench
-2. Create a new schema
-3. Select the schema using the command ```USE [schema name]```
-3.2 Import the SQL file
-1. Download the database dump files inside database/ directories
-2. Open MySQL workbench
-3. connect to local mySQL instance
-4. Select the schema
-5. Run those downloaded sql files to create appropriate databases
+### 1.2 Python Packages
+Install all dependencies:
 
-   
-4. Configure the Python App
+```bash
+pip install mysql-connector-python pillow tkinterweb
+```
+
+| Package | Purpose |
+|--------|---------|
+| mysql-connector-python | MySQL connectivity |
+| Pillow | Image loading / processing |
+| tkinterweb | Rendering web content within Tkinter |
+
+---
+
+## 2. Database Setup
+
+### 2.1 Create the Database Schema
+1. Open **MySQL Workbench**
+2. Create a schema (e.g., `cinema`)
+3. Select the schema:
+
+```sql
+USE cinema;
+```
+
+### 2.2 Import SQL Dump Files
+1. Download `.sql` files from the `database/` directory  
+2. Open MySQL Workbench  
+3. Select the **cinema** schema  
+4. Execute each SQL file to create tables and insert data  
+
+---
+
+## 3. Configure the Python App
+
+1. Open the main script (`app.py`)
+2. Set your MySQL connection info:
+
+```python
+DB_CONFIG = {
+    "host": "localhost",
+    "user": "your_username",
+    "password": "your_password",
+    "database": "your_schema_name",
+}
+```
+
+3. Check image directories:
+- `assets/posters/` — movie posters  
+- `assets/roadviews/` — road-view images  
+
+4. Run the application:
+
+```bash
+python app.py
+```
+
+---
+
+## 4. Notes
+- Covers theaters in **Austin** and **San Antonio**  
+- Ensure **MySQL Server is running** before starting the app  
+- Image files must exist in their respective asset folders  
