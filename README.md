@@ -54,7 +54,7 @@ USE cinema;
 
 ## 3. Configure the Python App
 
-1. Open the main script (`app.py`)
+1. Open the main script (`project_code.py`)
 2. Set your MySQL connection info:
 
 ```python
